@@ -182,7 +182,6 @@ header .search{
 }
 
 .hero {
-    background-image:url(./assets/images/IMG_1548.JPG)
 }
 
 .search img{
@@ -192,6 +191,41 @@ header .search{
   
 
 }
+/* CSS for search bar results */
+
+input{
+  flex: 1;
+  height: 50px;
+  background: transparent;
+  border:0;
+  outline:0;
+  font-size: 18px;
+  color: #333;
+}
+
+::placeholder{
+  color: #555;
+}
+
+.search-results ul{
+border-top: 1px solid #999;
+padding: 15px 10px;
+}
+
+.search-results ul li{
+  list-style: none;
+  border-radius: 3px;
+  padding: 15px 10px;
+  cursor: pointer;
+  color: #ffd700;
+}
+.search-results ul li:hover{
+  background: red;
+
+}
+
+
+
 
 .searchbox {
   width: 500px;
