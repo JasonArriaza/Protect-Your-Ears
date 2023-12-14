@@ -220,12 +220,9 @@ padding: 15px 10px;
   color: #ffd700;
 }
 .search-results ul li:hover{
-  background: red;
+  background: rgb(218, 45, 45);
 
 }
-
-
-
 
 .searchbox {
   width: 500px;
