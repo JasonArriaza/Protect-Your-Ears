@@ -52,7 +52,7 @@ function performSearch() {
     alert(results.length > 0 ? `Found: ${results.join(", ")}` : "No results found.");
 }
 
-}// Spotify API
+// Spotify API
 var clientId = '851808986c0a46ec8232b53e07dfb96e';
 var clientSecret = '73dfd0082e9b45d3a4f35128439e180c';
 var redirectUri = 'http://127.0.0.1:5500';
