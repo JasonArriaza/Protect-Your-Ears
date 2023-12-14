@@ -1,8 +1,62 @@
+// Testing React Feature
+
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap'
+// import { useState, useEffect} from 'react-bootstrap'
+
+// function App () {
+//     cont [ searchInput, setSearchInput] = useState("");
+
+//     return (
+//         <div className="app">
+//             <Container>
+//                 <InputGroup className="mb-3" size="lg">
+//                     <FormControl
+//                         placeholder = "Search For Artist"
+//                         type='input'
+//                         onKeyPress= {event=> {
+//                             if (event.key == "Enter") {
+//                                 console.log("Pressed enter")
+//                             }
+//                         }}
+//                         onChange={event => setSearchInput(event.target.value)}
+//                     />
+//                     <Button onClick={event => {console.log("clicked Button")}}>
+//                         Search
+//                     </Button>
+//                 </InputGroup>
+//             </Container>
+//             <Container>
+//                 <Card>
+//                    <Card.Img src='#' />
+//                    <Card.Body>
+//                         <Card.Title>Album Name Here</Card.Title>
+//                    </Card.Body>
+//                 </Card>
+//             </Container>
+//         </div>
+//     )
+
+const searchData = [
+    "Artist 1",
+    "Song 1",
+    "Album 1",
+    // Can add more items as needed
+];
+
+function performSearch() {
+    const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+    const results = searchData.filter(item => item.toLowerCase().includes(searchTerm));
+
+    // To customize the display of the search results
+    alert(results.length > 0 ? `Found: ${results.join(", ")}` : "No results found.");
+}
+
 // Spotify API
-var clientId = '';
-var clientSecret = '';
+var clientId = '851808986c0a46ec8232b53e07dfb96e';
+var clientSecret = '73dfd0082e9b45d3a4f35128439e180c';
 var redirectUri = 'http://127.0.0.1:5500';
-var accessToken = window.location.hash.substr(1).split('&')[0].split('=')[1];
+var accessToken = window.location.hash.substring(1).split('&')[0].split('=')[1];
 localStorage.setItem('access_token', accessToken);
 
 
@@ -44,3 +98,4 @@ fetch(`https://api.spotify.com/v1/tracks/${trackId}`, {
 //"https://open.spotify.com/embed/track/1Z4bpgy49F5P9mQrp29OVK?utm_source=generator
 
 //<a href="https://accounts.spotify.com/authorize?client_id=YOUR_CLIENT_ID&response_type=token&redirect_uri=http://localhost:5500&scope=user-read-private user-read-email">Authorize with Spotify</a>
+
