@@ -1,6 +1,6 @@
 // Spotify API
-var clientId = '851808986c0a46ec8232b53e07dfb96e';
-var clientSecret = '73dfd0082e9b45d3a4f35128439e180c';
+var clientId = '';
+var clientSecret = '';
 var redirectUri = 'http://127.0.0.1:5500';
 var accessToken = window.location.hash.substr(1).split('&')[0].split('=')[1];
 localStorage.setItem('access_token', accessToken);
