@@ -58,10 +58,17 @@ let availableKeywords = [
     'Outkast',
     'Drake',
     'Childish Gambino',
+    'Future',
+    'J. Cole',
+    'Kendrick Lamar',
+    'Eminem',
+    'Griselda',
+    'Michael Jackson',
+    'Kanye West',
 ];
 
 const resultsBox = document.querySelector(".search-results")
-const inputBox = document.getElementsByClassName("input")
+const inputBox = document.querySelector(".input")
 
 inputBox.onkeyup = function(){
     let result = [];
@@ -82,7 +89,7 @@ function display (result){
         return "<li>" + list + "</li>";
     });
 
-    resultsBox.innerHTML = "<ul>" + content + "</ul>"
+    resultsBox.innerHTML = "<ul>" + content.join("") + "</ul>"
 }
 
 // Spotify API
