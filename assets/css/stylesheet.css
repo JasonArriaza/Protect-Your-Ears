@@ -1,4 +1,3 @@
-
 /*
 .diamond {
  
@@ -130,6 +129,7 @@ header .search{
     font-size: 24px;
     margin-bottom: 15px;
     color: #ffd700;
+    cursor: pointer;
 }
 .yin-yang {
     width: 50px;
@@ -193,6 +193,41 @@ header .search{
   
 
 }
+/* CSS for search bar results */
+
+input{
+  flex: 1;
+  height: 50px;
+  background: transparent;
+  border:0;
+  outline:0;
+  font-size: 18px;
+  color: #333;
+}
+
+::placeholder{
+  color: #555;
+}
+
+.search-results ul{
+border-top: 1px solid #999;
+padding: 15px 10px;
+}
+
+.search-results ul li{
+  list-style: none;
+  border-radius: 3px;
+  padding: 15px 10px;
+  cursor: pointer;
+  color: #ffd700;
+}
+.search-results ul li:hover{
+  background: red;
+
+}
+
+
+
 
 .searchbox {
   width: 500px;
@@ -209,9 +244,9 @@ header .search{
 0px 0px 0px 21px rgba(255,0,0,1);
 }
 
-.searchbox h2 {
+ .searchbox h2 { */
   text-align: center;
     font-size: 24px;
     margin-bottom: 15px;
     color: #ffd700;
-}
+} 

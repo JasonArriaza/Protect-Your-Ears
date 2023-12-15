@@ -31,7 +31,7 @@
             <div id="navbarExampleTransparentExample"  class="navbar-menu">
     
                 <div class="navbar-end ">
-                    <a class="navbar-item has-text-warning" href="">
+                    <a class="navbar-item has-text-warning" href="#top">
                         Home
                     </a>
                     <a class="navbar-item has-text-warning" href="">
@@ -44,11 +44,20 @@
 
         </nav>
         <h1>Protect Your Ears</h1>
-        <div class="search field is-flex is-justify-content-center mx-6">
-            <input class="input" type="text" placeholder="Enter Artist Name, song or album">
-            <button class="button is-black"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+        <div class="searchbar">
+            <div class="search field is-flex is-justify-content-center mx-6">
+                <input class="input" type="text" placeholder="Enter Artist Name, song or album" autocomplete="off">
+                <button class="button is-black" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
-    
+        <div class="keyword-list"></div>
+      
+
+        <!-- list for search results --> 
+        <div class="search-results">
+         </div>
+    </div>
+
     
     </header>
     <section class="hero">
@@ -96,14 +105,15 @@
     
             <div class="card-footer-item links">
 
-                <a href="#" >Home</a> |
+                <a href="#top" >Home</a> |
                 <a href="#" >About</a> |
                 <a href="#" >Contact</a>
             </div>
        
 
     </footer>
-    <script src="assets/JavaScript/script.js"></script>
+    <script src="./assets/JavaScript/musix.js"></script>
+    <script src="./assets/JavaScript/script.js"></script>
 </body>
 
 </html>
