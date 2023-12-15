@@ -55,15 +55,15 @@ function display (result){
 }
 
 // Spotify API
-
-var clientId = '851808986c0a46ec8232b53e07dfb96e';
-var clientSecret = '3ade9d185d544550acd001fd977c5b69';
+//Have user authorize spotify and get access token
+var clientId = '';
+var clientSecret = '';
 var redirectUri = 'http://127.0.0.1:5500';
 var accessToken = window.location.hash.substring(1).split('&')[0].split('=')[1];
 localStorage.setItem('access_token', accessToken);
 
 
-var trackId = '3qQbCzHBycnDpGskqOWY0E';
+var trackId = '';
 
 async function getProfile() {
     let accessToken = localStorage.getItem('access_token');
@@ -117,7 +117,7 @@ fetch(`https://api.spotify.com/v1/tracks/${trackId}`, {
 
     
 
-//get track/id
+
 
 //"https://open.spotify.com/embed/track/1Z4bpgy49F5P9mQrp29OVK?utm_source=generator
 
