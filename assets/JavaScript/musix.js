@@ -42,7 +42,7 @@ document.getElementById('searchResults').addEventListener('click', function (eve
   
         // Log or display the obtained lyrics
         console.log('Lyrics:', lyrics);
-        // You can display the lyrics on your page or perform any other necessary actions
+        //Display the lyrics on your page or perform any other necessary actions
       })
       .catch(error => {
         console.error('Error fetching lyrics from Musixmatch', error);
