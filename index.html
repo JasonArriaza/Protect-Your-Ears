@@ -40,6 +40,9 @@
                     <a class="navbar-item has-text-warning" href="">
                         Contact
                     </a>
+                    <a class="navbar-item has-text-warning" href="https://accounts.spotify.com/authorize?client_id=42c34da2121a43f2a93f1d050a440551&response_type=token&redirect_uri=http://localhost:5500&scope=user-read-private user-read-email">
+                        Authorize
+                    </a>
                 </div>
 
         </nav>
@@ -47,7 +50,7 @@
 
         <div class="searchbar">
             <div class="search field is-flex is-justify-content-center mx-6">
-                <input class="input" type="text" placeholder="Enter Artist Name, song or album" autocomplete="off">
+                <input class="input" id="search-input" type="text" placeholder="Enter Artist Name, song or album" autocomplete="off">
                 <button class="button is-black" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
         <div class="keyword-list"></div>
