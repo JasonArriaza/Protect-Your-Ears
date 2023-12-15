@@ -182,7 +182,8 @@ header .search{
 }
 
 .hero {
-    background-image:url(./assets/images/IMG_1548.JPG)
+  background-image: none;
+   
 }
 
 .search img{
