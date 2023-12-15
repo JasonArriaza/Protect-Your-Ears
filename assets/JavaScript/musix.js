@@ -11,7 +11,7 @@ document.getElementById('searchResults').addEventListener('click', function (eve
   function searchForTrackId(trackName) {
 
   
-    const apiKey = 'a868348f6f1b8ad23c86c4a56c3a617e';
+    const apiKey = '';
     const searchUrl = `https://api.musixmatch.com/ws/1.1/track.search?q=${trackName}&apikey=${apiKey}`;
   
     fetch(searchUrl)
@@ -30,8 +30,7 @@ document.getElementById('searchResults').addEventListener('click', function (eve
   
   function fetchAndDisplayLyrics(trackId) {
   
-    // Example:
-    const apiKey = 'a868348f6f1b8ad23c86c4a56c3a617e';
+    const apiKey = '';
     const lyricsUrl = `https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=${trackId}&apikey=${apiKey}`;
   
     // Use fetch to send the API request
