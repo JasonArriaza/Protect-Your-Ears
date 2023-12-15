@@ -1,6 +1,6 @@
-const keywordList=document.querySelector(".keyword-list")
-const searchBtn= document.getElementById("search-btn")
-const inputEL= document.querySelector(".input")
+const keywordList = document.querySelector(".keyword-list");
+const inputBox = document.querySelector(".input");
+const resultsBox = document.querySelector(".search-results");
 
 let availableKeywords = [
     'Tyler the Creator',
@@ -17,42 +17,38 @@ let availableKeywords = [
     'Kanye West',
 ];
 
-// for (let i = 0; i < availableKeywords.length; i++) {
-//    const btn=document.createElement("button")
-//    btn.textContent=availableKeywords[i]
-//     keywordList.append(btn)
-// }
-
-// keywordList.addEventListener("click", (e)=>{
-//     e.preventDefault()
-//     const artist= this.event.target.textContent
-//     console.log(artist);
-// })
-
-const resultsBox = document.querySelector(".search-results")
-const inputBox = document.querySelector(".input")
-
-inputBox.onkeyup = function(){
+// Function to handle input and display search results
+inputBox.addEventListener("input", function () {
     let result = [];
     let input = inputBox.value;
-    if(input.length){
-        result = availableKeywords.filter((keyword)=>{
+
+    if (input.length) {
+        result = availableKeywords.filter((keyword) => {
             return keyword.toLowerCase().includes(input.toLowerCase());
         });
-
-    console.log(result);
-
     }
-    display(result);
-}
 
-function display (result){
-    const content = result.map((list)=>{
+    display(result);
+});
+
+// Function to display search results
+function display(result) {
+    const content = result.map((list) => {
         return "<li>" + list + "</li>";
     });
 
-    resultsBox.innerHTML = "<ul>" + content.join("") + "</ul>"
+    resultsBox.innerHTML = "<ul>" + content.join("") + "</ul>";
+
+    // Add event listener to each suggestion
+    const suggestionItems = resultsBox.querySelectorAll("li");
+    suggestionItems.forEach((item) => {
+        item.addEventListener("click", () => {
+            inputBox.value = item.textContent;
+            resultsBox.innerHTML = "";
+        });
+    });
 }
+
 
 // Spotify API
 //Have user authorize spotify and get access token
@@ -96,26 +92,37 @@ fetch(`https://api.spotify.com/v1/tracks/${trackId}`, {
         console.error('Error fetching track data from Spotify', error);
     });
 
-    // Audiomack results
+// Audiomack results
 
-    function getApi(song){
-        const url=`https://api.audiomack.com/v1/search?q=${song}`
-        fetch(url)
-        .then((response)=>{
+function getApi(searchTerm) {
+    const url = `https://api.spotify.com/v1/search?q=${searchTerm}&type=album,track,artist`
+    let accessToken = localStorage.getItem('access_token');
+           
+    fetch(
+        url, 
+        {
+            headers:  {
+                Authorization: 'Bearer ' + accessToken
+            }
+        })
+        .then((response) => {
             return response.json()
         })
-        .then((data)=>{
+        .then((data) => {
             console.log(data);
         })
-    }
+}
 
-    searchBtn.addEventListener("click", ()=>{
-        const searchSong=inputEL.value
-        console.log(searchSong);
-        getApi(searchSong)
-    })
+var inputEl = document.querySelector("#search-input");
+var searchBtn = document.querySelector("#search-btn");
+searchBtn.addEventListener("click", () => {
+    console.log('clicked!');
+    const searchSong = inputEl.value
+    console.log(searchSong);
+    getApi(searchSong)
+})
 
-    
+
 
 
 
