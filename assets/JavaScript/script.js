@@ -94,6 +94,20 @@ fetch(`https://api.spotify.com/v1/tracks/${trackId}`, {
 
 // Audiomack results
 
+function getApi(album) {
+    const url = `https://api.spotify.com/v1/search?q=${album}`
+    fetch(url)
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            console.log(data);
+        })
+}
+
+// Spotify Results for Artist, Track, and Album
+
+
 function getApi(searchTerm) {
     const url = `https://api.spotify.com/v1/search?q=${searchTerm}&type=album,track,artist`
     let accessToken = localStorage.getItem('access_token');
@@ -122,7 +136,11 @@ searchBtn.addEventListener("click", () => {
     getApi(searchSong)
 })
 
-
+searchBtn.addEventListener("click", () => {
+    const searchSong = inputEl.value
+    console.log(searchSong);
+    getApi(searchSong)
+})
 
 //get track/id
 
