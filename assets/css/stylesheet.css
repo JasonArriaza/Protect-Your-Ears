@@ -130,6 +130,7 @@ header .search{
     font-size: 24px;
     margin-bottom: 15px;
     color: #ffd700;
+    cursor: pointer;
 }
 .yin-yang {
     width: 50px;
@@ -220,9 +221,12 @@ padding: 15px 10px;
   color: #ffd700;
 }
 .search-results ul li:hover{
-  background: rgb(218, 45, 45);
+  background: red;
 
 }
+
+
+
 
 .searchbox {
   width: 500px;
