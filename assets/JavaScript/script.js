@@ -55,8 +55,8 @@ function display(result) {
 
 // Spotify API
 // Have the user authorize Spotify and get an access token
-var clientId = '851808986c0a46ec8232b53e07dfb96e';
-var clientSecret = '3ade9d185d544550acd001fd977c5b69';
+var clientId = '';
+var clientSecret = '';
 var redirectUri = 'http://127.0.0.1:5500';
 var accessToken = window.location.hash.substring(1).split('&')[0].split('=')[1];
 localStorage.setItem('access_token', accessToken);
