@@ -43,7 +43,7 @@ function display(result) {
     const suggestionItems = resultsBox.querySelectorAll("li");
     suggestionItems.forEach((item) => {
         item.addEventListener("click", () => {
-            inputBox.value = item.textContent; 
+            inputBox.value = item.textContent;
             resultsBox.innerHTML = "";
         });
     });
@@ -92,26 +92,37 @@ fetch(`https://api.spotify.com/v1/tracks/${trackId}`, {
         console.error('Error fetching track data from Spotify', error);
     });
 
-    // Audiomack results
+// Audiomack results
 
-    function getApi(album){
-        const url=`https://api.spotify.com/v1/search?q=${album}`
-        fetch(url)
-        .then((response)=>{
+function getApi(searchTerm) {
+    const url = `https://api.spotify.com/v1/search?q=${searchTerm}&type=album,track,artist`
+    let accessToken = localStorage.getItem('access_token');
+           
+    fetch(
+        url, 
+        {
+            headers:  {
+                Authorization: 'Bearer ' + accessToken
+            }
+        })
+        .then((response) => {
             return response.json()
         })
-        .then((data)=>{
+        .then((data) => {
             console.log(data);
         })
-    }
+}
 
-    searchBtn.addEventListener("click", ()=>{
-        const searchSong=inputEL.value
-        console.log(searchSong);
-        getApi(searchSong)
-    })
+var inputEl = document.querySelector("#search-input");
+var searchBtn = document.querySelector("#search-btn");
+searchBtn.addEventListener("click", () => {
+    console.log('clicked!');
+    const searchSong = inputEl.value
+    console.log(searchSong);
+    getApi(searchSong)
+})
 
-    
+
 
 //get track/id
 
