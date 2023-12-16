@@ -47,47 +47,41 @@
 
         </nav>
         <h1>Protect Your Ears</h1>
-        <div class="searchbar">
-            <div class="search field is-flex is-justify-content-center mx-6">
-                <input class="input" id="search-input" type="text" placeholder="Enter Artist Name, song or album" autocomplete="off">
-                <button class="button is-black" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
+        <div class="search field is-flex is-justify-content-center mx-6">
+            <input class="input" id="search-input" type="text" placeholder="Enter Artist Name, song or album">
+            <button class="button is-black" id="search-btn" onclick="navigateToProtectYears()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>            
         <div class="keyword-list"></div>
-      
+        <div class="search-results"></div>
+        <div id="load-songs"></div>
+           </div>
 
-        <!-- list for search results --> 
-        <div class="search-results">
-         </div>
-    </div>
-    
-    </header>
-    <section class="hero">
-
-    </section>
-
-    <div class="container">
-<!-- created columns for flex properties -->
+        </header>
+        <section class="hero">
+        </section>
+        <div class="container">
         <div class="columns">
             <div class="column ml-4">
                 <section id="lyrics" class="box">
-                    <h2>Lyrics</h2>
-                    <div class="yin-yang"></div>
+                    <h2><a href="lyrics.html" style="color: yellow;">Lyrics</a></h2>
                 </section>
             </div>
-        
-            <div class="column ml-4">
+          <div class="column ml-4">
                 <section id="hits" class="box">
-                    <h2>Biggest Hits</h2>
+                    <h2><a href="hits.html" style="color: yellow;">Biggest Hits</a></h2>
                 </section>
             </div>
         
             <div class="column ml-4">
                 <section id="tours" class="box">
-                    <h2>Tours</h2>
+                    <h2><a href="Protectyears.html" style="color: yellow;">Tours</a></h2>
                 </section>
             </div>
-        
         </div>
+    </div>
+
+    </div>
 <!--  created image slideshow -->
             <marquee class="marquee mt-auto" behavior="scroll" direction="left" scrollamount="5">
             <img src="assets/images/Kanyealbumart.jpeg" width="200" height="200" alt="Kanye">

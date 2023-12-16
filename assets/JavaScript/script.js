@@ -49,61 +49,17 @@ function display(result) {
     });
 }
 
+function navigateToProtectYears() {
+    window.location.href = 'Protectyears.html';
+}
 
 // Spotify API
 
-var clientId = '42c34da2121a43f2a93f1d050a440551';
-var clientSecret = '98bd1ce2330b4a808c0ddafb883b12fb';
+var clientId = 
+var clientSecret = 
 var redirectUri = 'http://127.0.0.1:5500';
-var accessToken = window.location.hash.substring(1).split('&')[0].split('=')[1];
+var accessToken = 
 localStorage.setItem('access_token', accessToken);
-
-
-var trackId = '3qQbCzHBycnDpGskqOWY0E';
-
-async function getProfile() {
-    let accessToken = localStorage.getItem('access_token');
-
-    const response = await fetch('https://api.spotify.com/v1/me', {
-        headers: {
-            Authorization: 'Bearer ' + accessToken
-        }
-    });
-
-    const data = await response.json();
-    console.log('User Profile:', data);
-}
-
-// Call the getProfile function
-getProfile();
-
-// Fetch track information
-fetch(`https://api.spotify.com/v1/tracks/${trackId}`, {
-    method: 'get',
-    headers: {
-        'Authorization': `Bearer ${accessToken}`,
-    },
-})
-    .then(response => response.json())
-    .then(data => {
-        console.log('Track Information:', data);
-    })
-    .catch(error => {
-        console.error('Error fetching track data from Spotify', error);
-    });
-
-// Audiomack results
-
-function getApi(album) {
-    const url = `https://api.spotify.com/v1/search?q=${album}`
-    fetch(url)
-        .then((response) => {
-            return response.json()
-        })
-        .then((data) => {
-            console.log(data);
-        })
-}
 
 // Spotify Results for Artist, Track, and Album
 
@@ -134,12 +90,7 @@ searchBtn.addEventListener("click", () => {
     const searchSong = inputEl.value
     console.log(searchSong);
     getApi(searchSong)
-})
 
-searchBtn.addEventListener("click", () => {
-    const searchSong = inputEl.value
-    console.log(searchSong);
-    getApi(searchSong)
 })
 
 //get track/id
@@ -148,3 +99,65 @@ searchBtn.addEventListener("click", () => {
 
 //<a href="https://accounts.spotify.com/authorize?client_id=YOUR_CLIENT_ID&response_type=token&redirect_uri=http://localhost:5500&scope=user-read-private user-read-email">Authorize with Spotify</a>
 
+// Spotify Reults for Page 2
+
+var songSearchEl = document.querySelector("#result-list")
+var moreSongsBtn = document.querySelector("#load-songs");
+
+moreSongsBtn.addEventListener("click", () =>{
+    resultsNum(3);
+})
+
+var songSearchEl = document.querySelector("#result-list")
+var moreSongsBtn = document.querySelector("#load-songs");
+
+moreSongsBtn.addEventListener("click", () =>{
+    resultsNum(3);
+})
+
+var resultsNum = (searchTerm = 5) => {
+    const url = `https://api.spotify.com/v1/search?q=${searchTerm}&type=album,track,artist`;
+    let accessToken = localStorage.getItem('access_token');
+
+    fetch(
+        url,
+        {
+            headers: {
+                Authorization: 'Bearer ' + accessToken
+            }
+        })
+        .then(async (response) => {
+            const data = await response.json();
+
+            // Assuming you have a container in your HTML to display the results
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = ''; // Clear previous results
+
+            // Check if there are items in the response
+            if (data.items && data.items.length > 0) {
+                for (let item of data.items) {
+                    console.log(item);
+
+                    // Create a new element for each result
+                    const resultItem = document.createElement('div');
+                    resultItem.classList.add('result-item'); // Add a class for styling, adjust as needed
+
+                    // Assuming you want to display the name of each item
+                    const itemName = document.createElement('p');
+                    itemName.innerText = item.name;
+                    resultItem.appendChild(itemName);
+
+                    // Add more elements to display additional information as needed
+
+                    // Append the result item to the container
+                    resultsContainer.appendChild(resultItem);
+                }
+            } else {
+                // Handle the case where there are no results
+                console.log('No results found.');
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
