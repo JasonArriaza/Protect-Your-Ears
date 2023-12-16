@@ -60,20 +60,24 @@
 }
  }*/
 
+ 
+
   
  body, html {
     margin: 0;
     padding: 0;
     font-family: "MedievalSharp";
-    background-color: #000;
-    color: #fff;
+    background-color: #080808;
+    color: #050505;
 }
 
-header {
-    background-color: #000;
+.header {
+    background: #070707;
+    color:#fbf5f5
+    
    
 }
-/* nav ul {
+ nav ul {
     list-style: none;
     text-align: center;
 }
@@ -90,7 +94,8 @@ nav ul li a {
     text-decoration: none;
     color: #ffd700;
     font-size: 18px;
-} */
+} 
+
 
 header h1 {
     text-align: center;
@@ -99,13 +104,21 @@ header h1 {
     margin-bottom: 10px;
    
 }
-header .search{
-    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
-}
+header .search {
+  position: relative;
+  width:300px;
+  height:40 px;
+  background: #333;
+  border-radius: 50% / 10%;
+  color: white;
+  text-align: center;
+  box-shadow: rgba(255, 0, 0, 0.4) -5px 5px, rgba(255, 0, 0, 0.3) -10px 10px, rgba(238, 5, 5, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+ }
 
 
 .container {
     height: 55vh;
+
    
 }
 
@@ -150,7 +163,7 @@ header .search{
     background: #fff;
     border: 9.4px solid #333;
     border-radius: 100%;
-    width: 6.25px;
+    width: px;
     height: 6.25px;
     box-sizing: content-box;
   }
