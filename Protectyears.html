@@ -46,8 +46,8 @@
     </nav>
     <h1>Protect Your Ears</h1>
     <div class="search field is-flex is-justify-content-center mx-6">
-        <input class="input" type="text" placeholder="Enter Artist Name, song or album">
-        <button class="button is-black"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input id="searchInput" class="input" type="text" placeholder="Enter Artist Name, song or album">
+        <button id="searchButton" class="button is-black"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
     
     <div class="container is-flex is-justify-content-center pt-6">
@@ -55,6 +55,7 @@
             <div class="column">
                 <section id="results" class="searchbox is-flex is-justify-content-center mx-6">
                 <h2> Search Results</h2>
+                <p id="searchResults"></p>
                 </section>
             </div>
             
@@ -74,6 +75,7 @@
 
     </footer>
 
-    <script src="assets/JavaScript/script.js"></script>
+    <script src="./assets/JavaScript/musix.js"></script>
+    <script src="./assets/JavaScript/script.js"></script>
 </body>
 </html>
