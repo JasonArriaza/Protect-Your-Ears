@@ -8,6 +8,7 @@ We ran into a few issues while doing git pulls from the main repository that res
 
 ## Usage
 This Website can be used to look up the Lyrics, Biggest Hits and Tour dates of your favorite artist.
+![Protect-Your-screenshot](https://github.com/JasonArriaza/Protect-Your-Ears/assets/144382382/bcc0488a-4211-4f51-911e-151bfcb5471f)
 
 
 
