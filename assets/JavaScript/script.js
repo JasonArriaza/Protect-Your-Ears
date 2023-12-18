@@ -55,8 +55,8 @@ function display(result) {
 
 // Spotify API
 // Have the user authorize Spotify and get an access token
-var clientId = '';
-var clientSecret = '';
+var clientId = '851808986c0a46ec8232b53e07dfb96e';
+var clientSecret = '3ade9d185d544550acd001fd977c5b69';
 var redirectUri = 'http://127.0.0.1:5500';
 var accessToken = window.location.hash.substring(1).split('&')[0].split('=')[1];
 localStorage.setItem('access_token', accessToken);
@@ -87,9 +87,25 @@ searchBtn.addEventListener('click', () => {
     }
 });
 
+// function searchForSpotifyTracks(query) {
+//     const spotifyApiKey = accessToken;
+//     const searchUrl = `https://api.spotify.com/v1/search?q=${query}&type=track&limit=10&apikey=${spotifyApiKey}`;
+//     fetch(searchUrl, {
+//         headers: {
+//             Authorization: 'Bearer ' + localStorage.getItem('access_token')
+//         }
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         displaySearchResults(data.tracks.items);
+//     })
+//     .catch(error => {
+//         console.error('Error grabbing the results', error);
+//     });
+// }
+
 function searchForSpotifyTracks(query) {
-    const spotifyApiKey = accessToken;
-    const searchUrl = `https://api.spotify.com/v1/search?q=${query}&type=track&limit=10&apikey=${spotifyApiKey}`;
+    const searchUrl = `https://api.spotify.com/v1/search?q=${query}&type=track&limit=10`;
     fetch(searchUrl, {
         headers: {
             Authorization: 'Bearer ' + localStorage.getItem('access_token')
@@ -103,6 +119,7 @@ function searchForSpotifyTracks(query) {
         console.error('Error grabbing the results', error);
     });
 }
+
 
 // Display the search results
 function displaySearchResults(tracks) {
@@ -138,10 +155,16 @@ function fetchTrackInformation(selectedTrackId) {
     .then(data => {
         console.log('Track Information:', data);
         // Handle track information
+        const spotifyLink = data.external_urls.spotify;
+        getSpotifyUrl(spotifyLink);
     })
     .catch(error => {
         console.error('Error fetching track data from Spotify', error);
     });
+}
+//function that inserts the spotify url
+function getSpotifyUrl(url) {
+    window.open(url, '_blank');
 }
 
 
